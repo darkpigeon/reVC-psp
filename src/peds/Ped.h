@@ -650,6 +650,11 @@ public:
 	uint32 m_lastComment;
 	CVector m_vecSpotToGuard;
 	float m_radiusToGuard;
+	bool m_losehead;
+	bool m_losearmL;
+	bool m_losearmR;
+	bool m_loselegL;
+	bool m_loselegR;
 
 	static void *operator new(size_t) throw();
 	static void *operator new(size_t, int) throw();

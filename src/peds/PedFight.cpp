@@ -3242,6 +3242,13 @@ CPed::RemoveBodyPart(PedNode nodeId, int8 direction)
 			}
 			bBodyPartJustCameOff = true;
 			m_bodyPartBleeding = nodeId;
+			switch(nodeId) {
+			case PED_UPPERARML: m_losearmL = true; break;
+			case PED_UPPERARMR: m_losearmR = true; break;
+			case PED_UPPERLEGL: m_loselegL = true; break;
+			case PED_UPPERLEGR: m_loselegR = true; break;
+			case PED_HEAD: m_losehead = true; break;
+			}
 		}
 	} else {
 		printf("Trying to remove ped component");

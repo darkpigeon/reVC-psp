@@ -374,6 +374,11 @@ CPed::CPed(uint32 pedType) : m_pedIK(this)
 	m_delayedSoundTimer = 0;
 	CPopulation::UpdatePedCount((ePedType)m_nPedType, false);
 	m_lastComment = UINT32_MAX;
+	m_losehead = false;
+	m_losearmL = false;
+	m_losearmR = false;
+	m_loselegL = false;
+	m_loselegR = false;
 }
 
 CPed::~CPed(void)
@@ -4867,6 +4872,66 @@ CPed::PreRender(void)
 		RwV3d zero = { 0.0f, 0.0f, 0.0f };
 		RwMatrixScale(head, &zero, rwCOMBINEPRECONCAT);
 	}
+
+		if (bBodyPartJustCameOff && (m_bodyPartBleeding == PED_UPPERARML ||  m_losearmL == true)) {
+		// scale head to 0 if shot off
+		RpHAnimHierarchy* hier = GetAnimHierarchyFromSkinClump(GetClump());
+		int32 idx = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_UPPERARML));
+		int32 idx2 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_FOREARML));
+		int32 idx3 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_HANDL));
+		RwMatrix* upperarml = &RpHAnimHierarchyGetMatrixArray(hier)[idx];
+		RwMatrix* forearml = &RpHAnimHierarchyGetMatrixArray(hier)[idx2];
+		RwMatrix* handl = &RpHAnimHierarchyGetMatrixArray(hier)[idx3];
+		RwV3d zero = { 0.0f, 0.0f, 0.0f };
+		RwMatrixScale(upperarml, &zero, rwCOMBINEPRECONCAT);
+		RwMatrixScale(forearml, &zero, rwCOMBINEPRECONCAT);
+		RwMatrixScale(handl, &zero, rwCOMBINEPRECONCAT);
+	}
+
+		if (bBodyPartJustCameOff && (m_bodyPartBleeding == PED_UPPERARMR ||  m_losearmR == true)) {
+		// scale head to 0 if shot off
+		RpHAnimHierarchy* hier = GetAnimHierarchyFromSkinClump(GetClump());
+		int32 idx = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_UPPERARMR));
+		int32 idx2 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_FOREARMR));
+		int32 idx3 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_HANDR));
+		RwMatrix* upperarmr = &RpHAnimHierarchyGetMatrixArray(hier)[idx];
+		RwMatrix* forearmr = &RpHAnimHierarchyGetMatrixArray(hier)[idx2];
+		RwMatrix* handr = &RpHAnimHierarchyGetMatrixArray(hier)[idx3];
+		RwV3d zero = { 0.0f, 0.0f, 0.0f };
+		RwMatrixScale(upperarmr, &zero, rwCOMBINEPRECONCAT);
+		RwMatrixScale(forearmr, &zero, rwCOMBINEPRECONCAT);
+		RwMatrixScale(handr, &zero, rwCOMBINEPRECONCAT);
+	}
+
+		if (bBodyPartJustCameOff && (m_bodyPartBleeding == PED_UPPERLEGL ||  m_loselegL == true)) {
+		// scale head to 0 if shot off
+		RpHAnimHierarchy* hier = GetAnimHierarchyFromSkinClump(GetClump());
+		int32 idx = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_UPPERLEGL));
+		int32 idx2 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_LOWERLEGL));
+		int32 idx3 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_FOOTL));
+		RwMatrix* upperlegl = &RpHAnimHierarchyGetMatrixArray(hier)[idx];
+		RwMatrix* lowerlegl = &RpHAnimHierarchyGetMatrixArray(hier)[idx2];
+		RwMatrix* footl = &RpHAnimHierarchyGetMatrixArray(hier)[idx3];
+		RwV3d zero = { 0.0f, 0.0f, 0.0f };
+		RwMatrixScale(upperlegl, &zero, rwCOMBINEPRECONCAT);
+		RwMatrixScale(lowerlegl, &zero, rwCOMBINEPRECONCAT);
+		RwMatrixScale(footl, &zero, rwCOMBINEPRECONCAT);
+	}	
+
+		if (bBodyPartJustCameOff && (m_bodyPartBleeding == PED_UPPERLEGR ||  m_loselegR == true)) {
+		// scale head to 0 if shot off
+		RpHAnimHierarchy* hier = GetAnimHierarchyFromSkinClump(GetClump());
+		int32 idx = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_UPPERLEGR));
+		int32 idx2 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_LOWERLEGR));
+		int32 idx3 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_FOOTR));
+		RwMatrix* upperlegr = &RpHAnimHierarchyGetMatrixArray(hier)[idx];
+		RwMatrix* lowerlegr = &RpHAnimHierarchyGetMatrixArray(hier)[idx2];
+		RwMatrix* footr = &RpHAnimHierarchyGetMatrixArray(hier)[idx3];
+		RwV3d zero = { 0.0f, 0.0f, 0.0f };
+		RwMatrixScale(upperlegr, &zero, rwCOMBINEPRECONCAT);
+		RwMatrixScale(lowerlegr, &zero, rwCOMBINEPRECONCAT);
+		RwMatrixScale(footr, &zero, rwCOMBINEPRECONCAT);
+	}	
 
 	if (IsPlayer() && gfTommyFatness != 1.0f) {
 		RpHAnimHierarchy* hier = GetAnimHierarchyFromSkinClump(GetClump());
