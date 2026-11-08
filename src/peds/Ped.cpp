@@ -4879,13 +4879,16 @@ CPed::PreRender(void)
 		int32 idx = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_UPPERARML));
 		int32 idx2 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_FOREARML));
 		int32 idx3 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_HANDL));
+		int32 idx4 = RpHAnimIDGetIndex(hier, BONE_l_finger);
 		RwMatrix* upperarml = &RpHAnimHierarchyGetMatrixArray(hier)[idx];
 		RwMatrix* forearml = &RpHAnimHierarchyGetMatrixArray(hier)[idx2];
 		RwMatrix* handl = &RpHAnimHierarchyGetMatrixArray(hier)[idx3];
+		RwMatrix* fingerl = &RpHAnimHierarchyGetMatrixArray(hier)[idx4];
 		RwV3d zero = { 0.0f, 0.0f, 0.0f };
 		RwMatrixScale(upperarml, &zero, rwCOMBINEPRECONCAT);
 		RwMatrixScale(forearml, &zero, rwCOMBINEPRECONCAT);
 		RwMatrixScale(handl, &zero, rwCOMBINEPRECONCAT);
+		RwMatrixScale(fingerl, &zero, rwCOMBINEPRECONCAT);
 	}
 
 		if (bBodyPartJustCameOff && (m_bodyPartBleeding == PED_UPPERARMR ||  m_losearmR == true)) {
@@ -4894,13 +4897,16 @@ CPed::PreRender(void)
 		int32 idx = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_UPPERARMR));
 		int32 idx2 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_FOREARMR));
 		int32 idx3 = RpHAnimIDGetIndex(hier, ConvertPedNode2BoneTag(PED_HANDR));
+		int32 idx4 = RpHAnimIDGetIndex(hier, BONE_r_finger);
 		RwMatrix* upperarmr = &RpHAnimHierarchyGetMatrixArray(hier)[idx];
 		RwMatrix* forearmr = &RpHAnimHierarchyGetMatrixArray(hier)[idx2];
 		RwMatrix* handr = &RpHAnimHierarchyGetMatrixArray(hier)[idx3];
+		RwMatrix* fingerr = &RpHAnimHierarchyGetMatrixArray(hier)[idx4];
 		RwV3d zero = { 0.0f, 0.0f, 0.0f };
 		RwMatrixScale(upperarmr, &zero, rwCOMBINEPRECONCAT);
 		RwMatrixScale(forearmr, &zero, rwCOMBINEPRECONCAT);
 		RwMatrixScale(handr, &zero, rwCOMBINEPRECONCAT);
+		RwMatrixScale(fingerr, &zero, rwCOMBINEPRECONCAT);
 	}
 
 		if (bBodyPartJustCameOff && (m_bodyPartBleeding == PED_UPPERLEGL ||  m_loselegL == true)) {
