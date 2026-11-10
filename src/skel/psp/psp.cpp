@@ -3171,7 +3171,7 @@ main(int argc, char *argv[])
 #if !defined(N3DS) && !defined(PSP_LITE)
 	// The PSP-2000/3000 version needs the slim's extra 32 MB; without it the
 	// loading runs out of memory and the PSP crashes. Say so instead.
-	if(pspHeapTotalKB > 0 && pspHeapTotalKB < 30*1024){
+	if(pspHeapTotalKB > 0 && pspHeapTotalKB < 10*1024){
 		char msg[400];
 		snprintf(msg, sizeof(msg),
 			"Only %d MB of memory is free for the game (it needs about 40 MB).\n\n"
