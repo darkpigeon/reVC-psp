@@ -164,7 +164,7 @@ endif()
 
 if(PSP)
     # PSP-1000 build (32 MB): cmake -DREVC_PSP_LITE=ON
-    option(REVC_PSP_LITE "Build for the PSP-1000 (32 MB)" OFF)
+    option(REVC_PSP_LITE "Build for the PSP-1000 (32 MB)" ON)
     if(REVC_PSP_LITE)
         add_compile_definitions(PSP_LITE)
     endif()
