@@ -29,7 +29,7 @@ namespace rw { namespace psp { void utilityDialog(int (*step)(void)); } }
 
 extern void pspLog(const char *str);
 
-#define SAVE_GAMENAME	"REVC00001"
+#define SAVE_GAMENAME	"RELC00001"
 #define SAVE_FILENAME	"DATA.BIN"
 #define NUM_SLOTS	8
 #define MAX_SAVE_SIZE	(320*1024)
