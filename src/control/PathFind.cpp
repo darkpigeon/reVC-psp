@@ -21,7 +21,7 @@ CPathFind ThePaths;
 #define NUMTEMPNODES 5000
 #define NUMDETACHED_CARS 1024
 #define NUMDETACHED_PEDS 1214
-#define NUMTEMPEXTERNALNODES 4600
+#define NUMTEMPEXTERNALNODES 4700 //lc
 
 CPathInfoForObject *InfoForTileCars;
 CPathInfoForObject *InfoForTilePeds;
