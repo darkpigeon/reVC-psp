@@ -45,7 +45,7 @@ enum Config {
 #ifdef PSP_LITE
 	NUMPTRNODES = 34000,	// about 27000 used after loading the map
 #else
-	NUMPTRNODES = 50000,
+	NUMPTRNODES = 33000,
 #endif
 	NUMENTRYINFOS = 3200,
 #if defined PSP_LITE
